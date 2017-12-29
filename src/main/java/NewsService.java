@@ -230,8 +230,9 @@ public class NewsService {
 						"будут доступны за 15-20 минут до начала матча.\n" +
 						
 						"<span style=\"color: #ff0000;\"><em><strong>Выберите плеер. Трансляция откроется в новом" +
-						" окне(под блоком рекламы):</strong></em></span>\n" +
-
+						" окне:</strong></em></span>\n" +
+						"<div id=\"streams1\">Плееры будут доступны перед началом матча</div>" +
+						"<h4><em><strong>SopCast:</em></strong></h4>" +
 						"<!-- MarketGidComposite Start --><div id=\"MarketGidScriptRootC601360\"> <div id=\"MarketGidPreloadC601360\">"+
 						"<a id=\"mg_add601360\" href=\"http://usr.marketgid.com/demo/celevie-posetiteli/\" target=\"_blank\"><img src=\"//cdn.marketgid.com/images/marketgid_add_link.png\" style=\"border:0px\"></a><br> "
 						+ "<a href=\"http://marketgid.com/\" target=\"_blank\">Загрузка...</a> </div> <script> "
@@ -241,8 +242,6 @@ public class NewsService {
 						+ "catch(e){var iw=d;var c=d[gi](\"MarketGidScriptRootC601360\");}var dv=iw[ce]('div');dv.id=\"MG_ID\";dv[st][ds]=n;dv.innerHTML=601360;c[ac](dv);"
 						+ "var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src=\"//jsc.marketgid.com/f/o/footlivehd.com.601360.js?t=\"+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();"
 						+ "</script></div><!-- MarketGidComposite End -->"+
-						"<div id=\"streams1\">Плееры будут доступны перед началом матча</div>" +
-						"<h4><em><strong>SopCast:</em></strong></h4>" +
 						
 						"<div id=\"sopstreams\"><em><strong>SopCast ссылки будут доступны перед началом матча</strong></em></div>" +
 						"&nbsp;\n&nbsp;\n&nbsp;\n&nbsp;\n";
@@ -277,17 +276,20 @@ public class NewsService {
 
 	static List<String> getStreamsUrls(){
 		List<String> list = new ArrayList<String>();
+		list.add("http://livetv.sx/competitions/276/");//
+		list.add("http://livetv.sx/competitions/775/");//
+		list.add("http://livetv.sx/competitions/778/");//
+		list.add("http://livetv.sx/competitions/777/");//
+		list.add("http://livetv.sx/competitions/196/");//
 		list.add("http://livetv.sx/competitions/408/");//biathlon
 		list.add("http://livetv.sx/competitions/657/");//тов турнир
 		list.add("http://livetv.sx/competitions/84/");//ч.м хокей
 		list.add("http://livetv.sx/competitions/65/");//fnl
 		list.add("http://livetv.sx/competitions/418/");//hockey
 		list.add("http://livetv.sx/competitions/167/");//hockey
-		list.add("http://livetv.sx/competitions/73/"); //куб укр
-		list.add("http://livetv.sx/competitions/43/"); // чемп укр
-		list.add("http://livetv.sx/competitions/74/"); // куб фран
-		list.add("http://livetv.sx/competitions/62/"); //куб фран л
-		list.add("http://livetv.sx/competitions/37/"); //чемп фран
+		list.add("http://livetv.sx/competitions/768/");//hz
+		list.add("http://livetv.sx/competitions/930/"); //hz
+		list.add("http://livetv.sx/competitions/273/"); //hz
 		list.add("http://livetv.sx/competitions/82/"); // куб нім
 		list.add("http://livetv.sx/competitions/129/"); //суперкуб нім
 		list.add("http://livetv.sx/competitions/36/"); //чемп нім
@@ -309,6 +311,7 @@ public class NewsService {
 		list.add("http://livetv.sx/competitions/7/"); //ЛЧ
 		list.add("http://livetv.sx/competitions/1250/");//EUR
 		list.add("http://livetv.sx/competitions/201/");//club world
+		list.add("http://livetv.sx/competitions/149/");//uefa
 
 		return list;
 	}
@@ -349,7 +352,10 @@ public class NewsService {
 				 "Чемпионат Мира",
 				 "Чемпионат Европы",
 				 "ЧМ-2018",
-				 "КХЛ"
+				 "КХЛ",
+				 "Хоккей",
+				 "Россия",
+				 "Биатлон"
 		 };
 
 		for(int i=0;i<topTeams.length;i++){
@@ -441,26 +447,6 @@ public class NewsService {
 					db.deleteSameNews(ids.get(i+1));
 				}
 			}
-		}
-
-	}
-
-	public static void main(String[] args) throws ParseException, SQLException{
-		NewsService s= new NewsService();
-		//s.mainPagePublishCurrentDate("16.04,17-00 Трансляция матча guse – pes. Чемпионат Англии. Премьер-Лига. Смотреть онлайн","16.04", 18947, db);
-		;
-		ArrayList<String> list = new ArrayList();
-		list.add("Vbkf");
-		list.add("Милан");
-		list.add("Милан");
-		list.add("Мадрид");
-		list.add("Челси");
-		list.add("Ливерпуль");
-		list.add("рак");
-		list.add("Ювентус");
-		list.add("ПСЖ");
-		for(int i=0;i<list.size();i++){
-			s.hasTopTeamNameInString(list.get(i));
 		}
 
 	}

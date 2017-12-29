@@ -51,7 +51,7 @@ public class Do {
 			ClassNotFoundException, InterruptedException, SQLException {
 		BasicConfigurator.configure();
 		MysqlDAO mysql = new MysqlDAO();
-		Integer number = null;
+		/*Integer number = null;
 		boolean b = false;
 
 		try{
@@ -70,10 +70,13 @@ public class Do {
 		}else if(number==2){
 			updater(mysql, service, robber);
 		}else{
+		
 			partOne(dbWorker, newsService);
 			updater(mysql, service, robber);
-		}
-
+		}*/
+		
+	partOne(dbWorker, newsService);
+		updater(mysql, service, robber);
 	}
 
 	static void partOne(DbAccess dbWorker, NewsService newsService)
@@ -86,7 +89,7 @@ public class Do {
 		List<String> streamUrlsList = NewsService.getStreamsUrls();
 
 		for (int listHrefs = 0; listHrefs < streamUrlsList.size(); listHrefs++) {
-			Thread.sleep(500);
+			Thread.sleep(150);
 			dateTodayForTranslationPublish = DateFormator.formatDate(new Date(), DateFormator.ShortDateFormat);
 			yesterdayDateForTranslationPublish = DateFormator.formatDate(DateFormator.substractDaysFromToday(-1),
 					DateFormator.ShortDateFormat);
@@ -248,6 +251,9 @@ public class Do {
 							//<!--noindex--><div id="ambn11106"></div><!--/noindex-->
 
 							//String ads="";
+							
+							String adsBanner = "<script id=\"sofaAffiliateScript\" type=\"text/javascript\" src=\"http://www.sofascore.com/bundles/sofascoreweb/js/bin/util/affiliate.min.js\" data-custom=\"custom\" data-width=\"620\" data-height=\"350\"></script>";
+							
 							String adsUnderPlayer="<!-- MarketGidComposite Start --><div id=\"MarketGidScriptRootC601360\"> <div id=\"MarketGidPreloadC601360\">"
 									+ "<a id=\"mg_add601360\" href=\"http://usr.marketgid.com/demo/celevie-posetiteli/\" target=\"_blank\"><img src=\"//cdn.marketgid.com/images/marketgid_add_link.png\" style=\"border:0px\"></a><br> "
 									+ "<a href=\"http://marketgid.com/\" target=\"_blank\">Загрузка...</a> </div> <script> "
@@ -256,37 +262,15 @@ public class Do {
 									+ "var i=d[ce]('iframe');i[st][ds]=n;d[gi](\"MarketGidScriptRootC601360\")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln(\"<ht\"+\"ml><bo\"+\"dy></bo\"+\"dy></ht\"+\"ml>\");iw.close();var c=iw[b];}"
 									+ "catch(e){var iw=d;var c=d[gi](\"MarketGidScriptRootC601360\");}var dv=iw[ce]('div');dv.id=\"MG_ID\";dv[st][ds]=n;dv.innerHTML=601360;c[ac](dv);"
 									+ "var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src=\"//jsc.marketgid.com/f/o/footlivehd.com.601360.js?t=\"+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();"
-									+ "</script></div><!-- MarketGidComposite End -->";
-
-							String video="<script type=\"text/javascript\">"+
-									"var moevideo = moevideo || {};"+
-									"moevideo.queue = moevideo.queue || [];"+
-									"(function() {"+
-									"var mvads = document.createElement(\"script\");"+
-									"mvads.async = true;"+
-									"mvads.type = \"text/javascript\";"+
-									"var useSSL = \"https:\" == document.location.protocol;"+
-									"mvads.src = (useSSL ? \"https:\" : \"http:\") + \"//moevideo.biz/embed/js/mvpt.min.js\";"+
-									"var node =document.getElementsByTagName(\"head\")[0];"+
-									"node.appendChild(mvads, node);"+
-									"})();"+
-									"</script>"+
-									"<div id=\"adv\">"+
-									"<script type='text/javascript'>"+
-									"moevideo.queue.push(function() {"+
-									"moevideo.ContentRoll({"+
-									"mode:\"manual\","+
-									"el:\"#adv\","+
-									"ignorePlayers:true"+
-									"});"+
-									"});"+
-									"</script>"+
-									"</div> ";
-							//String clickunder="<script src=\"http://v.luxfp.space/v/002GSfkMHaL7dZPLaflFy524h8GUZw\" type=\"text/javascript\" charset=\"windows-1251\"></script>";
+									+ "</script></div><!-- MarketGidComposite End -->"
+									+ adsBanner;
+		
 
 							String advMixer="<div id=\"MIXADV_1532\" class=\"MIXADVERT_NET\"></div>\n" +
 									"<script type=\"text/javascript\" src=\"https://s.mixadvert.com/show/?id=1532\" async></script>";
-
+							
+							
+							
 							String finishcontent = "<div id=\"stream\" style=\"width: 680px;\">"+"<br/>"+adsUnderPlayer+postIframeContent+"</div>"+advMixer;
 
 
@@ -302,7 +286,7 @@ public class Do {
 									.postedPlayerId(postTitleAdress);
 							mysql.insertPlayerPageTerm(playerId);
 							// add player to text of main translation
-							contentIframe += "[button color=\"red\" size=\"medium\" link=\"http://www.footlivehd.com/"
+							contentIframe += "[button color=\"red\" size=\"medium\" link=\"http://www.matchttv.ru/"
 									+ postTitleAdress
 									+ "/\" target=\"blank\" ]"
 									+ "ПЛЕЕР "

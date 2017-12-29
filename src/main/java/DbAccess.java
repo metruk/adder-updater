@@ -18,14 +18,16 @@ import java.util.logging.Logger;
 public class DbAccess {
 
 	private static Connection connection;
-	private static final String URL = "jdbc:mysql://metruk.mysql.ukraine.com.ua:3306/metruk_hdcom?useUnicode=true&characterEncoding=UTF-8";
-	//private static final String URL = "jdbc:mysql://hostx.mysql.ukraine.com.ua:3306/hostx_footlivehd";
-	private static final String USERNAME = "metruk_hdcom";
-	private static final String PASSWORD = "cdvf2tb3";
-	/*private static final String URL = "jdbc:mysql://178.218.218.45:3306/db12805c?useUnicode=true&characterEncoding=utf-8";
-	private static final String USERNAME = "us12805c";
-	private static final String PASSWORD = "kmh8UxgZ7RstBm7";*/
 	
+	/*private static final String URL = "jdbc:mysql://51.15.78.0:3306/matchtw?useUnicode=true&characterEncoding=UTF-8";
+	private static final String USERNAME = "chuck";
+	private static final String PASSWORD = "QQ123123qq";*/
+	private static final String URL = "jdbc:mysql://51.15.52.97:3306/matchttv?useUnicode=true&characterEncoding=UTF-8";
+	private static final String USERNAME = "chuck";
+	private static final String PASSWORD = "QQ123123qq";
+	/*private static final String URL = "jdbc:mysql://51.15.53.49:3306/dbCom?useUnicode=true&characterEncoding=UTF-8";
+	private static final String USERNAME = "chuck";
+	private static final String PASSWORD = "QQ123123qq";*/
 
 	final private static String INSERT_TRANSLATION_WITHOUT_MINIATURE = "INSERT INTO wp_posts (post_author, post_date, post_date_gmt, post_content,"
 			+ " post_excerpt,post_title, post_status, comment_status, ping_status,post_name,to_ping,pinged,"
@@ -90,7 +92,7 @@ public class DbAccess {
 	}
 
 	List<String> selectTranslationQuery() {
-		long checkedTranslation=selectMaxID()-650;
+		long checkedTranslation=selectMaxID()-500;
 		if(checkedTranslation < 0){
 			checkedTranslation = 1;
 		}
